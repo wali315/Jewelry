@@ -1,0 +1,253 @@
+﻿@inject IHttpContextAccessor abc;
+@*@model Jewelry.Models.CartItem;*@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>JewelBox</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="apple-touch-icon" href="~/assets/img/icon.jpg">
+    <link rel="shortcut icon" type="image/x-icon" href="~/assets/img/icon.jpg">
+
+    <link rel="stylesheet" href="~/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/assets/css/templatemo.css">
+    <link rel="stylesheet" href="~/assets/css/custom.css">
+
+    <!-- Load fonts style after rendering the layout styles -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap">
+    <link rel="stylesheet" href="~/assets/css/fontawesome.min.css">
+  
+    <style>
+        .dropdown-menu {
+            background-color: black!important;
+        }
+
+        .dropdown-item {
+            color: white !important;
+        }
+
+            .dropdown-item:hover {
+                background-color: #ffc107!important;
+                color: black!important;
+            }
+    </style>
+</head>
+
+<body>
+    <!-- Start Top Nav -->
+    <nav class="navbar navbar-expand-lg bg-white navbar-white d-none d-lg-block" id="templatemo_nav_top">
+        <div class="container text-light">
+            <div class="w-100 d-flex justify-content-between">
+                <div>
+                    <i class="fa fa-envelope mx-2"></i>
+                    <a class="navbar-sm-brand text-dark text-decoration-none" href="mailto:info@company.com">info@company.com</a>
+                    <i class="fa fa-phone mx-2"></i>
+                    <a class="navbar-sm-brand text-dark text-decoration-none" href="tel:010-020-0340">010-020-0340</a>
+                </div>
+                <div>
+                    <a class="text-dark" href="https://fb.com/templatemo" target="_blank" rel="sponsored"><i class="fab fa-facebook-f fa-sm fa-fw me-2"></i></a>
+                    <a class="text-dark" href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram fa-sm fa-fw me-2"></i></a>
+                    <a class="text-dark" href="https://twitter.com/" target="_blank"><i class="fab fa-twitter fa-sm fa-fw me-2"></i></a>
+                    <a class="text-dark" href="https://www.linkedin.com/" target="_blank"><i class="fab fa-linkedin fa-sm fa-fw"></i></a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- Close Top Nav -->
+    <!-- Header -->
+    <nav class="navbar navbar-expand-lg navbar-light shadow bg-warning">
+        <div class="container d-flex justify-content-between align-items-center" >
+
+            <a  class="navbar-brand text-white logo h1 align-self-center" asp-controller="user" asp-action="Index">
+                JewelBox
+            </a>
+
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#templatemo_main_nav" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="align-self-center collapse navbar-collapse flex-fill  d-lg-flex justify-content-lg-between" id="templatemo_main_nav">
+                <div class="flex-fill">
+                    <ul class="nav navbar-nav d-flex justify-content-between mx-lg-auto">
+                        <li class="nav-item ">
+                            <a class="nav-link"  asp-controller="user" asp-action="Index" style="color:white!important;">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="user" asp-action="About" style="color:white!important;">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " asp-controller="user" asp-action="shop" style="color:white!important;">Shop</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="user" asp-action="Contact" style="color:white!important;">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="navbar align-self-center d-flex">
+                    @*<div class="d-lg-none flex-sm-fill mt-3 mb-4 col-7 col-sm-auto pr-3">
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="inputMobileSearch" placeholder="Search ...">
+                            <div class="input-group-text">
+                                <i class="fa fa-fw fa-search"></i>
+                            </div>
+                        </div>
+                    </div>*@
+                  @*  <a class="nav-icon d-none d-lg-inline" href="#" data-bs-toggle="modal" data-bs-target="#templatemo_search">
+                        <i class="fa fa-fw fa-search text-dark mr-2"></i>
+                    </a>*@
+
+                        @{
+                            
+                       if (string.IsNullOrEmpty(abc.HttpContext.Session.GetString("f")) || string.IsNullOrEmpty(abc.HttpContext.Session.GetString("l")))
+
+                        {
+                            <a class="nav-icon position-relative text-decoration-none" asp-controller="Cart" asp-action="Index">
+                        @*Welcome @abc.HttpContext.Session.GetString("f") @abc.HttpContext.Session.GetString("l")*@
+                            <i class="fa fa-fw fa-cart-arrow-down text-dark mr-1"></i>
+                            <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark"></span>
+                    </a>
+                            <a asp-controller="UserRegMsts" asp-action="userlogin" class="btn btn-dark" style="color:white">
+                        <i class="fa fa-fw fa-user text-light"></i>Signup/Login
+                    </a>
+                    }
+                    else
+                    {
+                            <a class="nav-icon position-relative text-decoration-none" asp-controller="Cart" asp-action="Index">
+                                @*Welcome @abc.HttpContext.Session.GetString("f") @abc.HttpContext.Session.GetString("l")*@
+                                <i class="fa fa-fw fa-cart-arrow-down text-dark mr-1"></i>
+                                <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark"></span>
+                            </a>
+                            <div class="dropdown">
+                                <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <b>!Hello </b>@abc.HttpContext.Session.GetString("f")  @abc.HttpContext.Session.GetString("l")
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                    <li><a class="dropdown-item" asp-controller="UserRegMsts" asp-action="Logout">Logout</a></li>
+                                    
+                                </ul>
+                            </div>
+                           
+                                
+                               
+                          
+                            
+                            
+                    }
+
+                    }
+                </div>
+            </div>
+
+        </div>
+    </nav>
+    <!-- Close Header -->
+    @RenderBody()
+
+    <!-- Start Footer -->
+    <footer class="bg-dark" style="background-color: #000 !important;" id="tempaltemo_footer">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-md-4 pt-5">
+                    <h2 class="h2 text-warning border-bottom pb-3 logo" style="color:#ffc107!important">JewelBox</h2>
+                    <ul class="list-unstyled text-light footer-link-list">
+                        <li>
+                            <i class="fas fa-map-marker-alt fa-fw"></i>
+                            123 Consectetur at ligula 10660
+                        </li>
+                        <li>
+                            <i class="fa fa-phone fa-fw"></i>
+                            <a class="text-decoration-none" href="#" style="color:white!important;">010-020-0340</a>
+                        </li>
+                        <li>
+                            <i class="fa fa-envelope fa-fw"></i>
+                            <a class="text-decoration-none" href="#" style="color:white!important;">info@company.com</a>
+                        </li>
+                    </ul>
+                </div>
+
+            
+
+                <div class="col-md-4 pt-5">
+                    <h2 class="h2 text-light border-bottom pb-3 border-light">Further Info</h2>
+                    <ul class="list-unstyled text-light footer-link-list">
+                        <li><a class="text-decoration-none" href="#" style="color:white!important;">Home</a></li>
+                        <li><a class="text-decoration-none" href="#" style="color:white!important;">About Us</a></li>
+                        <li><a class="text-decoration-none" href="#" style="color:white!important;">Shop Locations</a></li>
+                        <li><a class="text-decoration-none" href="#" style="color:white!important;">FAQs</a></li>
+                        <li><a class="text-decoration-none" href="#" style="color:white!important;">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-md-4 pt-5">
+                <h2 class="h2 text-light border-bottom pb-3 border-light">Project Members</h2>
+                <ul class="list-unstyled text-light footer-link-list">
+                        <li><a class="text-decoration-none" href="#" style="color:white!important;">Abdul Majid</a></li>
+                        <li><a class="text-decoration-none" href="#" style="color:white!important;">Muhammad Samiullah </a></li>
+                        <li><a class="text-decoration-none" href="" style="color:white!important;">Usaamah Azam</a></li>
+                        <li><a class="text-decoration-none" href="#" style="color:white!important;">Wali Ahmed</a></li>
+                        <li><a class="text-decoration-none" href="#" style="color:white!important;">Abdul Ahad</a></li>
+                
+                </ul>
+                </div>
+
+            </div>
+
+            <div class="row text-light mb-4">
+                <div class="col-12 mb-3">
+                    <div class="w-100 my-3 border-top border-light"></div>
+                </div>
+                <div class="col-auto me-auto">
+                    <ul class="list-inline text-left footer-icons">
+                        <li class="list-inline-item border border-light rounded-circle text-center">
+                            <a class="text-light text-decoration-none" target="_blank" href="http://facebook.com/"><i class="fab fa-facebook-f fa-lg fa-fw"></i></a>
+                        </li>
+                        <li class="list-inline-item border border-light rounded-circle text-center">
+                            <a class="text-light text-decoration-none" target="_blank" href="https://www.instagram.com/"><i class="fab fa-instagram fa-lg fa-fw"></i></a>
+                        </li>
+                        <li class="list-inline-item border border-light rounded-circle text-center">
+                            <a class="text-light text-decoration-none" target="_blank" href="https://twitter.com/"><i class="fab fa-twitter fa-lg fa-fw"></i></a>
+                        </li>
+                        <li class="list-inline-item border border-light rounded-circle text-center">
+                            <a class="text-light text-decoration-none" target="_blank" href="https://www.linkedin.com/"><i class="fab fa-linkedin fa-lg fa-fw"></i></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-auto">
+                    <label class="sr-only" for="subscribeEmail">Email address</label>
+                    <div class="input-group mb-2">
+                        <input type="text" class="form-control bg-light border-dark" id="subscribeEmail" placeholder="Email address">
+                        <a class="input-group-text btn-warning" href="#" style="text-decoration:none;color:black!important">Subscribe</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="w-100 bg-black py-3" style="background-color: #000 !important;">
+            <div class="container">
+                <div class="row pt-2">
+                    <div class="col-12">
+                        <p class="text-left text-light">
+                            Copyright &copy; 2021 JewelBox
+                            | Designed by <a rel="sponsored"href="">ASUW</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </footer>
+    <!-- End Footer -->
+    <!-- Start Script -->
+    <script src="~/assets/js/jquery-1.11.0.min.js"></script>
+    <script src="~/assets/js/jquery-migrate-1.2.1.min.js"></script>
+    <script src="~/assets/js/bootstrap.bundle.min.js"></script>
+    <script src="~/assets/js/templatemo.js"></script>
+    <script src="~/assets/js/custom.js"></script>
+    <!-- End Script -->
+</body>
+
+</html>

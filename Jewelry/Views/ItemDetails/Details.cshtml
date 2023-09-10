@@ -1,0 +1,152 @@
+﻿@model Jewelry.Models.ItemDetails
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>ItemDetails</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.catMst)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.catMst.Cat_Name)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.prodName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.prodName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Pairs)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Pairs)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.brandMst)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.brandMst.Brand_Type)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Quantity)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Quantity)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.certifyMst)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.certifyMst.Cat_Name)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.goldKrtMst)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.goldKrtMst.Gold_Crt)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Gold_Wt)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Gold_Wt)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Net_Gold)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Net_Gold)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Wstg_Per)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Wstg_Per)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Wstg)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Wstg)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Tot_Gross_Wt)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Tot_Gross_Wt)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Gold_Rate)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Gold_Rate)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Gold_Amt)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Gold_Amt)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Gold_Making)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Gold_Making)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.prodMst)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.prodMst.Prod_Type)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Dim_Pcs)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Dim_Pcs)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Stone_Wt)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Stone_Wt)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Stone_Making)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Stone_Making)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Dim_Amt)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Dim_Amt)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.imgUrl)
+        </dt>
+        <dd class = "col-sm-10">
+            @*@Html.DisplayFor(model => model.imgUrl)*@
+            <img src="@Model.imgUrl" width="50px" height="50px">
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.MRP)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.MRP)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.ItemMstID">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

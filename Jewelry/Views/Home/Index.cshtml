@@ -1,0 +1,96 @@
+﻿@model IEnumerable<Jewelry.Models.pay>
+@using System.Globalization;
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="col-md-12 grid-margin transparent" style="margin-top:10%">
+    <div class="row">
+        <div class="col-md-3 mb-4 stretch-card transparent">
+            <div class="card card-tale">
+                <div class="card-body">
+                    <p class="mb-4">Today’s Sales</p>
+                    <p class="fs-30 mb-2">@ViewBag.TodaySales.ToString("C", new CultureInfo("en-US"))</p>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-4 stretch-card transparent">
+            <div class="card card-dark-blue">
+                <div class="card-body">
+                    <p class="mb-4">Todays Clients</p>
+                    <p class="fs-30 mb-2">@ViewBag.TodayUsers</p>
+                    
+                </div>
+            </div>
+        </div>
+   
+        <div class="col-md-3 mb-4 stretch-card transparent">
+            <div class="card card-light-blue">
+                <div class="card-body">
+                    <p class="mb-4">Total Sales</p>
+                    <p class="fs-30 mb-2">@ViewBag.TotalSalesAmount.ToString("C", new CultureInfo("en-US"))</p>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-4 stretch-card transparent">
+            <div class="card card-light-danger">
+                <div class="card-body">
+                    <p class="mb-4">Total Number of Clients</p>
+                    <p class="fs-30 mb-2">@ViewBag.TotalUsers</p>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<h1>Total Sales</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.UserName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreditCard)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TotalAmount)
+            </th>
+            
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CreditCard)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TotalAmount)
+                </td>
+                @*<td>
+                    <a asp-action="Edit" asp-route-id="@item.CatMstId">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.CatMstId">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.CatMstId">Delete</a>
+                </td>*@
+            </tr>
+        }
+    </tbody>
+</table>

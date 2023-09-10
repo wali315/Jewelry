@@ -1,0 +1,106 @@
+﻿@model IEnumerable<Jewelry.Models.UserRegMst>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+
+<div class="page-header">
+    
+    <h1 class="page-title" style="margin-top:4%">Manage Users</h1>
+    @* <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="#">Tables</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Basic tables</li>
+    </ol>
+    </nav>*@
+</div>
+<div class="row">
+    
+      
+                
+
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.userFname)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.userLname)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.address)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.city)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.state)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.mobNo)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.emailID)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.dob)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.cdate)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.password)
+                                </th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.userFname)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.userLname)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.address)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.city)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.state)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.mobNo)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.emailID)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.dob)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.cdate)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.password)
+                                    </td>
+                                    <td>
+                                        <a asp-action="Edit" asp-route-id="@item.UserRegMstId">Edit</a> |
+                                        <a asp-action="Details" asp-route-id="@item.UserRegMstId">Details</a> |
+                                        <a asp-action="Delete" asp-route-id="@item.UserRegMstId">Delete</a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+       

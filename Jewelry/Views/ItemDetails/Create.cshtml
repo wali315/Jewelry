@@ -1,0 +1,132 @@
+﻿@model Jewelry.Models.ItemDetails
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Create</h1>
+
+<h4>ItemDetails</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create" method="post" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="CatMstId" class="control-label"></label>
+                <select asp-for="CatMstId" class ="form-control" asp-items="ViewBag.CatMstId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="prodName" class="control-label"></label>
+                <input asp-for="prodName" class="form-control" />
+                <span asp-validation-for="prodName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Pairs" class="control-label"></label>
+                <input asp-for="Pairs" class="form-control" />
+                <span asp-validation-for="Pairs" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BrandMstID" class="control-label"></label>
+                <select asp-for="BrandMstID" class ="form-control" asp-items="ViewBag.BrandMstID"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Quantity" class="control-label"></label>
+                <input asp-for="Quantity" class="form-control" />
+                <span asp-validation-for="Quantity" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CertifyMstID" class="control-label"></label>
+                <select asp-for="CertifyMstID" class ="form-control" asp-items="ViewBag.CertifyMstID"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="GoldKrtMstID" class="control-label"></label>
+                <select asp-for="GoldKrtMstID" class ="form-control" asp-items="ViewBag.GoldKrtMstID"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Gold_Wt" class="control-label"></label>
+                <input asp-for="Gold_Wt" class="form-control" />
+                <span asp-validation-for="Gold_Wt" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Net_Gold" class="control-label"></label>
+                <input asp-for="Net_Gold" class="form-control" />
+                <span asp-validation-for="Net_Gold" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Wstg_Per" class="control-label"></label>
+                <input asp-for="Wstg_Per" class="form-control" />
+                <span asp-validation-for="Wstg_Per" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Wstg" class="control-label"></label>
+                <input asp-for="Wstg" class="form-control" />
+                <span asp-validation-for="Wstg" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Tot_Gross_Wt" class="control-label"></label>
+                <input asp-for="Tot_Gross_Wt" class="form-control" />
+                <span asp-validation-for="Tot_Gross_Wt" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Gold_Rate" class="control-label"></label>
+                <input asp-for="Gold_Rate" class="form-control" />
+                <span asp-validation-for="Gold_Rate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Gold_Amt" class="control-label"></label>
+                <input asp-for="Gold_Amt" class="form-control" />
+                <span asp-validation-for="Gold_Amt" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Gold_Making" class="control-label"></label>
+                <input asp-for="Gold_Making" class="form-control" />
+                <span asp-validation-for="Gold_Making" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ProdMstID" class="control-label"></label>
+                <select asp-for="ProdMstID" class ="form-control" asp-items="ViewBag.ProdMstID"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Dim_Pcs" class="control-label"></label>
+                <input asp-for="Dim_Pcs" class="form-control" />
+                <span asp-validation-for="Dim_Pcs" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Stone_Wt" class="control-label"></label>
+                <input asp-for="Stone_Wt" class="form-control" />
+                <span asp-validation-for="Stone_Wt" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Stone_Making" class="control-label"></label>
+                <input asp-for="Stone_Making" class="form-control" />
+                <span asp-validation-for="Stone_Making" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Dim_Amt" class="control-label"></label>
+                <input asp-for="Dim_Amt" class="form-control" />
+                <span asp-validation-for="Dim_Amt" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="imgUrl" class="control-label"></label>
+               @*<input asp-for="imgUrl" class="form-control" />*@
+                <input type="file" name="img" class="form-control" />
+                <span asp-validation-for="imgUrl" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MRP" class="control-label"></label>
+                <input asp-for="MRP" class="form-control" />
+                <span asp-validation-for="MRP" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

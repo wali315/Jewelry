@@ -1,0 +1,39 @@
+﻿@model IEnumerable<Jewelry.Models.CertifyMst>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<div class="row">
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        <h1>@Html.DisplayNameFor(model => model.Cat_Name)</h1>
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Cat_Name)
+                        </td>
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@item.CertifyMstID">Edit</a> |
+                            <a asp-action="Details" asp-route-id="@item.CertifyMstID">Details</a> |
+                            <a asp-action="Delete" asp-route-id="@item.CertifyMstID">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+<p>
+    <a asp-action="Create" class="btn btn-primary">Create New</a>
+</p>
